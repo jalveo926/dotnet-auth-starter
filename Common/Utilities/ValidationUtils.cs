@@ -4,6 +4,7 @@ namespace DevBoard.Common.Utilities
 {
     public static class ValidationUtils
     {
+        // Validate email using regex
         public static bool IsValidEmail(string email)
         {
             if (string.IsNullOrWhiteSpace(email))
@@ -15,6 +16,7 @@ namespace DevBoard.Common.Utilities
             );
         }
 
+        // Validate username: only letters, numbers, and underscores, between 3 and 50 characters
         public static bool IsValidUsername(string username)
         {
             if (string.IsNullOrWhiteSpace(username))
@@ -26,6 +28,7 @@ namespace DevBoard.Common.Utilities
             );
         }
 
+        // Validate password: at least 8 characters, at least one uppercase letter, one lowercase letter, and one number
         public static bool IsValidPassword(string password)
         {
             if (string.IsNullOrWhiteSpace(password))

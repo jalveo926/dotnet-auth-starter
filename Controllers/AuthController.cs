@@ -21,12 +21,16 @@ namespace DevBoard.Controllers
         {
             var result = await _authService.RegisterAsync(request);
 
-            if (!result)
+            if (!result.Success)
             {
-                return Conflict("Usuario o Email ya existe.");
+                return Conflict(new { 
+                    code = result.ErrorCode
+                });
             }
 
-            return Ok("Usuario registrado exitosamente.");
+            return Ok( new { 
+                message = "Usuario registrado exitosamente"
+            });
         }
     }
 }

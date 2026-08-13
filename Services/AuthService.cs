@@ -4,6 +4,8 @@ using DevBoard.DTOs.Auth;
 using DevBoard.Services.Interfaces;
 using DevBoard.Common.Utilities;
 using Microsoft.EntityFrameworkCore;
+using DevBoard.Common.Errors;
+using DevBoard.Services.Results;
 
 namespace DevBoard.Services
 {
@@ -20,16 +22,47 @@ namespace DevBoard.Services
         }
 
         //request siendo la info que viene del front end, el request tiene username, email y password
-        public async Task<bool> RegisterAsync(RegisterRequest request)
+        public async Task<AuthResult> RegisterAsync(RegisterRequest request)
         {   //Revisar si el usuario ya existe en la base de datos por email o username
             var existingUser = await _context.Users
                 .AnyAsync(u =>
                     u.Email == request.Email ||
                     u.Username == request.Username);
 
-            if (existingUser && ValidationUtils.IsValidPassword(request.Password) && ValidationUtils.IsValidEmail(request.Email))
+            if (existingUser)
             {
-                return false;
+                return new AuthResult { 
+                    Success = false, 
+                    ErrorCode = ErrorCode.EmailAlreadyExists,
+                    ErrorMessage = ErrorCode.UsernameAlreadyExists
+                };
+            }
+
+            if (!ValidationUtils.IsValidEmail(request.Email))
+            {
+                return new AuthResult
+                {
+                    Success = false,
+                    ErrorCode = ErrorCode.InvalidEmail
+                };
+            }
+
+            if (!ValidationUtils.IsValidUsername(request.Username))
+            {
+                return new AuthResult
+                {
+                    Success = false,
+                    ErrorCode = ErrorCode.InvalidUsername
+                };
+            }
+
+            if (!ValidationUtils.IsValidPassword(request.Password))
+            {
+                return new AuthResult
+                {
+                    Success = false,
+                    ErrorCode = ErrorCode.InvalidPassword
+                };
             }
 
             //Se crea el usuario a guardar en la base de datos 
@@ -46,7 +79,9 @@ namespace DevBoard.Services
 
             await _context.SaveChangesAsync();
 
-            return true;
+            return new AuthResult { 
+                Success = true
+            };
         }
 
         public string CreatePasswordHash(string password)

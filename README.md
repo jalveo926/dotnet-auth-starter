@@ -1,30 +1,49 @@
-﻿# DevBoard
+﻿# .NET Authentication Starter
 
-DevBoard is a mobile application designed for software developers to track, analyze, and improve their programming activity.
+Reusable authentication backend built with ASP.NET Core and Entity Framework Core.
 
-The application will provide a centralized dashboard where users can connect their development activity, define personal goals, and visualize their progress through statistics and achievements.
+This project provides a foundation for implementing authentication in future applications, including user registration, password hashing, validation, login, and JWT-based authentication.
 
-## 🎯 Project Goals
+The goal is to develop the authentication system independently so it can later be reused as a starting point for other .NET projects.
 
-- Track and visualize programming activity.
-- Connect development data from external platforms such as GitHub.
-- Set and monitor personal development goals.
-- Display statistics and progress over time.
-- Provide a mobile-first experience.
-- Build a scalable backend following modern software development practices.
+## Features
 
-## 🏗️ Architecture
+- User registration
+- Input validation
+- Password hashing
+- Duplicate username and email validation
+- Standardized error codes
+- Entity Framework Core migrations
+- MySQL database integration
+- Login authentication
+- JWT-based authentication
+- Protected API endpoints
 
-The project will follow a client-server architecture:
+## Technologies
+
+- C#
+- .NET 8
+- ASP.NET Core Web API
+- Entity Framework Core 8
+- MySQL
+- Pomelo.EntityFrameworkCore.MySql
+- JWT
+- Swagger / OpenAPI
+
+## Project Structure
 
 ```text
-Mobile App
-    │
-    │ REST API
-    ▼
-ASP.NET Core Backend
-    │
-    ├── Entity Framework Core
-    │
-    ▼
-MySQL Database
+├── Controllers/
+├── Data/
+│   ├── Entities/
+│   └── Configurations/
+├── DTOs/
+│   └── Auth/
+├── Services/
+│   └── Results/
+├── Common/
+│   ├── Errors/
+│   └── Utilities/
+├── Migrations/
+├── Program.cs
+└── appsettings.json
