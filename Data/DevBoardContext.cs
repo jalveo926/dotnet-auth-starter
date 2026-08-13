@@ -13,5 +13,14 @@ namespace DevBoard.Data
 
         // Entidades que se mapearán a tablas
         public DbSet<User> Users { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.ApplyConfigurationsFromAssembly(
+                typeof(DevBoardContext).Assembly
+            );
+        }
     }
 }

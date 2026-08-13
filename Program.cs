@@ -1,4 +1,7 @@
+using DevBoard.Auth;
 using DevBoard.Data;
+using DevBoard.Services;
+using DevBoard.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -17,7 +20,8 @@ builder.Services.AddDbContext<DevBoardContext>(options =>
 
 
 // Add services to the container.
-
+builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<IPasswordService, PasswordService>();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

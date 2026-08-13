@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DevBoard")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cce2dc15ec56250093ce607c9beef45afa91c8fc")]
 [assembly: System.Reflection.AssemblyProductAttribute("DevBoard")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DevBoard")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

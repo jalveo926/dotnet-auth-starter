@@ -110,3 +110,5 @@ J:\BACKEND\Proyectos\DevBoard\DevBoard\obj\Debug\net8.0\refint\DevBoard.dll
 J:\BACKEND\Proyectos\DevBoard\DevBoard\obj\Debug\net8.0\DevBoard.pdb
 J:\BACKEND\Proyectos\DevBoard\DevBoard\obj\Debug\net8.0\DevBoard.genruntimeconfig.cache
 J:\BACKEND\Proyectos\DevBoard\DevBoard\obj\Debug\net8.0\ref\DevBoard.dll
+J:\BACKEND\Proyectos\DevBoard\DevBoard\obj\Debug\net8.0\DevBoard.sourcelink.json
+J:\BACKEND\Proyectos\DevBoard\DevBoard\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
